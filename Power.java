@@ -8,22 +8,21 @@ public class Power {
 	public static double power(double x, int n) {
 		if (n == 0) {								//if n = 0, return 1
 			x = 1;									//if n = 0, return 1
-			System.out.println(x);
 		}
 		/*else {
 			if (n%2 == 0) {							//when n is even use x^n = 􏰀(x^n/2)􏰁2.
-				x = power(x, n/2) * power(x, n/2);		//when n is even use x^n = 􏰀(x^n/2)􏰁2.
-				System.out.println(x);
+				x = power(x, n/2);
+				x = x * x; 							//when n is even use x^n = 􏰀(x^n/2)􏰁2.
 			}*/
-			else {
+		else {
 				x = x * power(x, (n - 1));			//x^x^(n-1) => recursion of Math.pow(x, n)
-				System.out.println(x);
 			}
 		//}
+	System.out.println(x);
 	return x;
 	}
 
 	public static void main(String[] args) {
-		power(4, 4);		//Invoke method power and pass values
+		power(3, 5);								//Invoke method power and pass values
 	}
 }

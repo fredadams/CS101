@@ -25,7 +25,7 @@ public class AreFactors {
 
 	public static void main(String[] args) {
 		System.out.println("Assumption: The 1st number in the aray is the devider number for the rest of the numbers in the array.");
-		System.out.println("Example: run with 2 4 6 7, means the numbers 4, 6, and 7 all have to be divisible by 2.");
+		System.out.println("Example: java AreFactors 2 4 6 7 => means the numbers 4, 6, and 7 all have to be divisible by 2.");
 		
 		int[] factors = new int[args.length - 1];			//factors has same length as args - 1 since 1st number in array ars is the devider.
 		for (int i = 1; i < args.length; i++) {				//since 1st number is the devider we start at 1 instead of 0.

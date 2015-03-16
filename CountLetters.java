@@ -6,31 +6,47 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 
 public class CountLetters {
-	public static void countLetters(String word, char ltr) {
-    	int length = word.length();
+	public static int countLetters(String str, char letter) {
+    	int length = str.length();
     	int count = 0;
-    	int index = word.indexOf(ltr);
+    	int index = str.indexOf(letter);
 
-    	while (index <= length) {
-    		if (word.indexOf(ltr, index) != -1) { 
+    	while (index < length) {
+            if (index != -1) {
+                System.out.println("The letter " + letter + " was found at " + str + "[" + index + "].");
                 count = count + 1;
-                System.out.println("The char " + ltr + " was found at " + word + "[" + index + "].");
-                if (index == 0) {
-                    index = word.indexOf(ltr, 1);
-                }
-                else {
-                    index = index + word.indexOf(ltr, index);    
-                }
-                
-			}
- 			else {
- 				System.out.println("The char " + ltr + " was found at " + word + "[" + index + "].");
-    		}
-    	}	
-    	System.out.println("The number of letter(s) '" + ltr + "' found in the word '" + word + "' = " + count + ".");
-	}
+                index = str.indexOf(letter, index + 1);
+            }
+            else {
+                break;
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("The letter " + letter + " was NOT found in the str " + str);
+        }
+        else {
+            System.out.println("The number of letter(s) '" + letter + "' found in the word '" + str + "' = " + count + ".");    
+        }
+        
+        return count;
+    }
 
 	public static void main(String[] args) {
-		countLetters("aaaaa", 'a');
+		//countLetters("alibaba banana", 'a');
+        countLetters("aaaaa", 'a');
 	}
 }
+
+/*String fruit = "banana";
+int length = fruit.length();
+int count = 0;
+int index = 0;
+
+while (index < length) {
+    if (fruit.charAt(index) == 'a') {
+        count = count + 1;
+    }
+    index = index + 1;
+}
+System.out.println(count);*/

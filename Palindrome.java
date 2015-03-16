@@ -29,13 +29,29 @@ public class Palindrome {
 	}
 
 	public static String middle (String word) {
-		int index_firstLtr = word.indexOf(first(word));
-		int index_lastLtr = word.indexOf(last(word));
-		return word.substring(index_firstLtr + 1, index_lastLtr);	//return middle of word
+		//int index_firstLtr = word.indexOf(first(word));
+		//int index_lastLtr = word.indexOf(last(word));
+		//return word.substring(word.indexOf(first(word)) + 1, word.indexOf(last(word)));	//return middle of word
+		return word.substring(1, word.length() - 1);
+	}
+
+	public static boolean isPalindrome (String word) {
+		if (word.length() < 2) {
+			return true;
+		}
+		else {
+			boolean firstLastMatch = (first(word) == last(word));
+			if (firstLastMatch) {
+				return isPalindrome(middle(word));
+			}
+			else {
+				return false;
+			}
+		}
 	}
 
 	public static void main(String[] args) {
-		String string = "Hello World";
+		String string = "otto";
 		if (string.length() < 2) {
 			System.out.println("Please enter a word with at least 2 chars.");
 		}
@@ -43,6 +59,7 @@ public class Palindrome {
 			System.out.println("First letter in word '" + string + "' => " + first(string));
         	System.out.println("Last letter in word '" + string + "' => " + last(string));
         	System.out.println("Middle letter(s) in word '" + string + "' => " + middle(string));
+        	System.out.println("Is the word '" + string + "' a palindrome? " + isPalindrome(string));
 		}
     }
 }

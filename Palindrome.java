@@ -29,10 +29,7 @@ public class Palindrome {
 	}
 
 	public static String middle (String word) {
-		//int index_firstLtr = word.indexOf(first(word));
-		//int index_lastLtr = word.indexOf(last(word));
-		//return word.substring(word.indexOf(first(word)) + 1, word.indexOf(last(word)));	//return middle of word
-		return word.substring(1, word.length() - 1);
+		return word.substring(1, word.length() - 1);				//return middle char(s) of word
 	}
 
 	public static boolean isPalindrome (String word) {
@@ -40,7 +37,7 @@ public class Palindrome {
 			return true;
 		}
 		else {
-			boolean firstLastMatch = (first(word) == last(word));
+			boolean firstLastMatch = (first(word).equals (last(word)));
 			if (firstLastMatch) {
 				return isPalindrome(middle(word));
 			}
@@ -51,15 +48,16 @@ public class Palindrome {
 	}
 
 	public static void main(String[] args) {
-		String string = "otto";
-		if (string.length() < 2) {
+		//String str = "otto";
+		String str = "palindromeemordnilap";
+		if (str.length() < 2) {
 			System.out.println("Please enter a word with at least 2 chars.");
 		}
 		else {
-			System.out.println("First letter in word '" + string + "' => " + first(string));
-        	System.out.println("Last letter in word '" + string + "' => " + last(string));
-        	System.out.println("Middle letter(s) in word '" + string + "' => " + middle(string));
-        	System.out.println("Is the word '" + string + "' a palindrome? " + isPalindrome(string));
+			System.out.println("First letter in word '" + str + "' => " + first(str));
+        	System.out.println("Last letter in word '" + str + "' => " + last(str));
+        	System.out.println("Middle letter(s) in word '" + str + "' => " + middle(str));
+        	System.out.println("Is the word '" + str + "' a palindrome? " + isPalindrome(str));
 		}
     }
 }

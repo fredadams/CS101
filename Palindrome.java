@@ -29,6 +29,9 @@ public class Palindrome {
 	}
 
 	public static String middle (String word) {
+		if (word.length() <= 2) {
+			return ""; 
+		}
 		return word.substring(1, word.length() - 1);				//return middle char(s) of word
 	}
 
@@ -47,17 +50,23 @@ public class Palindrome {
 		}
 	}
 
+	public static boolean isPalindromeIter(String word) {
+		while (word.length() > 1) {
+			if (!first(word).equals (last(word))) {
+				return false;
+			}
+			word = middle(word); 
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
-		//String str = "otto";
 		String str = "palindromeemordnilap";
-		if (str.length() < 2) {
-			System.out.println("Please enter a word with at least 2 chars.");
-		}
-		else {
-			System.out.println("First letter in word '" + str + "' => " + first(str));
-        	System.out.println("Last letter in word '" + str + "' => " + last(str));
-        	System.out.println("Middle letter(s) in word '" + str + "' => " + middle(str));
-        	System.out.println("Is the word '" + str + "' a palindrome? " + isPalindrome(str));
-		}
+		
+		System.out.println("First letter in word '" + str + "' => " + first(str));
+        System.out.println("Last letter in word '" + str + "' => " + last(str));
+        System.out.println("Middle letter(s) in word '" + str + "' => " + middle(str));
+        System.out.println("Is the word '" + str + "' a palindrome (recursive)? " + isPalindrome(str));
+        System.out.println("Is the word '" + str + "' a palindrome (iterative)? " + isPalindromeIter(str));
     }
 }
